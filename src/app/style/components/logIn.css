@@ -1,0 +1,19 @@
+.logIn {
+    display: flex;
+}
+
+.logIn-img {
+    width: 380px;
+}
+
+.logIn-left {
+    margin-right: 20px;
+}
+
+.logIn-right input {
+    margin-bottom: 20px;
+}
+
+.logIn-right input:first-child {
+    margin-top: 20px;
+}
