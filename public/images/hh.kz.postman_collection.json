@@ -1,0 +1,727 @@
+{
+	"info": {
+		"_postman_id": "4ce983a6-7cd6-4fc3-88b9-886bcc8bee85",
+		"name": "hh.kz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26339620"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "sendVerificationEmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "tamikofficial@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/auth/sendmail",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"sendmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifycode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "tamikofficial@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "HH1689267360611",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/auth/verifycode",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"verifycode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signUpManager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "olzhas@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "full_name",
+									"value": "Olzhik",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "company_name",
+									"value": "TOO DECODE GROUP",
+									"type": "text"
+								},
+								{
+									"key": "company_description",
+									"value": "prog school",
+									"type": "text"
+								},
+								{
+									"key": "company_address",
+									"value": "Almaty, SmartPoint",
+									"type": "text"
+								},
+								{
+									"key": "company_logo",
+									"type": "file",
+									"src": "/Users/tamerlan/Downloads/2.webp"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/auth/signup",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginManager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "olzhas@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/auth/login",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "region",
+			"item": [
+				{
+					"name": "getAllCities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/region/cities",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"region",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCountries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/region/countries",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"region",
+								"countries"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "skills",
+			"item": [
+				{
+					"name": "getAllSkills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/skills/getAllSkills",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"skills",
+								"getAllSkills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSkillsByKey",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/skills/dev",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"skills",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employment Types",
+			"item": [
+				{
+					"name": "getEmploymentTypes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/employment-types",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"employment-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "languages",
+			"item": [
+				{
+					"name": "getLanguages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/languages",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"languages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "resume",
+			"item": [
+				{
+					"name": "createResume",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Tamerlan\",\n    \"last_name\": \"Tyulyubekov\",\n    \"phone\": \"87777777777\",\n    \"birthday\": \"2023-07-13T17:38:17.775Z\",\n    \"gender\": \"Мужской\",\n    \"about\": \"Ответственный\",\n    \"position\": \"angular developer\",\n    \"salary\": 3500000,\n    \"salary_type\": \"KZT\",\n    \"main_language\": \"Казахский\",\n    \"skills\": \"Node,React,Postgre,MongoDB\",\n    \"cityId\": 27,\n    \"citizenship\": 4,\n    \"workingHistories\": [\n        {\n            \"company_name\": \"first company\",\n            \"company_description\": \"web sites\",\n            \"responsibilities\": \"create web site\",\n            \"start_date\": \"2017-07-13T17:38:17.775Z\",\n            \"end_date\": \"2018-07-13T17:38:17.775Z\"\n        },\n        {\n            \"company_name\": \"second company\",\n            \"company_description\": \"web applicatio \",\n            \"responsibilities\": \"create web applicatio\",\n            \"start_date\": \"2019-07-13T17:38:17.775Z\",\n            \"end_date\": \"2020-07-13T17:38:17.775Z\"\n        }\n    ],\n    \"education\": [\n        {\n            \"level\": \"Бакалавриат\",\n            \"university_name\": \"IITU\",\n            \"faculty\": \"IT\",\n            \"major\": \"CSSE\",\n            \"end_date\": \"2020-07-13T17:38:17.775Z\"\n        },\n        {\n            \"level\": \"Магистратура\",\n            \"university_name\": \"IITU\",\n            \"faculty\": \"IT\",\n            \"major\": \"CSSE\",\n            \"end_date\": \"2022-07-13T17:38:17.775Z\"\n        }\n    ],\n    \"foreignLanguages\": [\n        {\n            \"name\": \"english\",\n            \"level\": \"B1\"\n        },\n        {\n            \"name\": \"Русский\",\n            \"level\": \"А1\"\n        }\n    ],\n    \"employmentTypes\": [1, 2, 3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/resume",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"resume"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMyResumes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/resume",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"resume"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getResume",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/resume/6",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"resume",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeResumeById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/resume/3",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"resume",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editResume",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"first_name\": \"Tamerlan\",\n    \"last_name\": \"Tyulyubekov\",\n    \"phone\": \"87777777777\",\n    \"birthday\": \"2023-07-13T17:38:17.775Z\",\n    \"gender\": \"Мужской\",\n    \"about\": \"Ответственный\",\n    \"position\": \"angular react developer\",\n    \"salary\": 4500000,\n    \"salary_type\": \"KZT\",\n    \"main_language\": \"Казахский\",\n    \"skills\": \"Node,React,Postgre,MongoDB, Angular\",\n    \"cityId\": 27,\n    \"citizenship\": 4,\n    \"workingHistories\": [\n        {\n            \"company_name\": \"edit first company\",\n            \"company_description\": \"web sites\",\n            \"responsibilities\": \"create web site\",\n            \"start_date\": \"2017-07-13T17:38:17.775Z\",\n            \"end_date\": \"2018-07-13T17:38:17.775Z\"\n        },\n        {\n            \"company_name\": \"second company\",\n            \"company_description\": \"web applicatio \",\n            \"responsibilities\": \"create web applicatio\",\n            \"start_date\": \"2019-07-13T17:38:17.775Z\",\n            \"end_date\": \"2020-07-13T17:38:17.775Z\"\n        }\n    ],\n    \"education\": [\n        {\n            \"level\": \"Бакалавриат\",\n            \"university_name\": \"IITU\",\n            \"faculty\": \"IT\",\n            \"major\": \"CSSE\",\n            \"end_date\": \"2020-07-13T17:38:17.775Z\"\n        },\n        {\n            \"level\": \"Магистратура\",\n            \"university_name\": \"KBTU\",\n            \"faculty\": \"IT\",\n            \"major\": \"CSSE\",\n            \"end_date\": \"2022-07-13T17:38:17.775Z\"\n        }\n    ],\n    \"foreignLanguages\": [\n        {\n            \"name\": \"english\",\n            \"level\": \"B2\"\n        },\n        {\n            \"name\": \"Русский\",\n            \"level\": \"А2\"\n        }\n    ],\n    \"employmentTypes\": [2, 3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/resume",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"resume"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "specializations",
+			"item": [
+				{
+					"name": "getSpecializationTypesWithSpecializations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/specializations",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"specializations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vacancy",
+			"item": [
+				{
+					"name": "getExperiences",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/experiences",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"experiences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createVacancy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_MANAGER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Менеджер отдела продаж",
+									"type": "text"
+								},
+								{
+									"key": "specializationId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cityId",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "продажа курсов",
+									"type": "text"
+								},
+								{
+									"key": "employmentTypeId",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "salary_from",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "salary_to",
+									"value": "500000",
+									"type": "text"
+								},
+								{
+									"key": "salary_type",
+									"value": "KZT",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "CRM, Звонки",
+									"type": "text"
+								},
+								{
+									"key": "about_company",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "experienceId",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/vacancy",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"vacancy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMyVacancies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_MANAGER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/vacancy",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"vacancy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVacancyById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/vacancy/2",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"vacancy",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "END_POINT",
+			"value": "http://134.209.104.133:3000",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJ0YW1pa29mZmljaWFsQGdtYWlsLmNvbSIsImZ1bGxfbmFtZSI6bnVsbCwicGhvbmUiOm51bGwsInJvbGUiOnsiaWQiOjEsIm5hbWUiOiJlbXBsb3llZSJ9LCJpYXQiOjE2ODkyNjczNzcsImV4cCI6MTcyMDgwMzM3N30.93aM6vw9TDg76O4Sfd0W197BQ4gMKOzqkF8NgbWmx-8",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_MANAGER_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJvbHpoYXNAZ21haWwuY29tIiwiZnVsbF9uYW1lIjoiT2x6aGlrIiwicGhvbmUiOm51bGwsInJvbGUiOnsiaWQiOjIsIm5hbWUiOiJtYW5hZ2VyIn0sImlhdCI6MTY5MjIwNTEyNywiZXhwIjoxNzIzNzQxMTI3fQ.FoF0cxtQXCFA9TaL-XrJZANKXS8B4jHmRsHUSM8XtE0",
+			"type": "string"
+		},
+		{
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

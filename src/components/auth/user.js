@@ -1,5 +1,6 @@
 'use client'
 import {useState} from 'react'
+import Link from "next/link"
 export default function UserLogin () {
     const [step , setStep] = useState(1)
 
@@ -39,7 +40,7 @@ export default function UserLogin () {
                         <form>
                             <input className="input"  placeholder="Email"/>
                             <input className="input"  placeholder="Password"/>
-                            <button className="button">Log in</button>
+                            <Link href="/profile" className="button">Log in</Link>
                         </form>
                     </div>
                     <div className="card">
