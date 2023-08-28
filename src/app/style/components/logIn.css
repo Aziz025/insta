@@ -1,5 +1,7 @@
 .logIn {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logIn-img {
