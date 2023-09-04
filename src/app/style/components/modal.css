@@ -1,0 +1,101 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+}
+
+.modal-backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.modal-inner {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    width: 80%;
+    max-width: 600px; 
+    margin: 100px auto 0;
+    z-index: 2;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.modal-backdrop p{
+    margin-right: 40px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal-inner h4{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #0095F6;
+}
+
+.modal-inner-picture {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-inner-picture .fieldset {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #0095F6;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.modal-inner-text p{
+    display: flex;
+    justify-content: center;
+}
+
+.modal-picture {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.modal-inner-picture .fieldset label:hover {
+    cursor: pointer; 
+}
+
+.modal-inner.hiddden {
+    display: none; 
+  }
+  
+  .selected-image {
+    width: 50%; 
+}
+
+  .image-container {
+    max-width: 100%; 
+  }
+  
+  .selected-image {
+    max-width: 100%; 
+    height: auto;
+  }
+
+  
+  
+  
+  
+  
