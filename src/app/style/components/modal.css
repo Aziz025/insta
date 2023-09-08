@@ -21,18 +21,15 @@
 .modal-inner {
     position: relative;
     background-color: #fff;
-    padding: 20px;
     border-radius: 4px;
     width: 80%;
     max-width: 600px; 
     margin: 100px auto 0;
     z-index: 2;
-    height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-  }
+}
 
 .modal-backdrop p{
     margin-right: 40px;
@@ -45,6 +42,7 @@
     display: flex;
     justify-content: center;
     border-bottom: 1px solid #0095F6;
+    width: 100%;
 }
 
 .modal-inner-picture {
@@ -53,13 +51,13 @@
 }
 
 .modal-inner-picture .fieldset {
-    width: 50%;
     display: flex;
     justify-content: center;
     cursor: pointer;
     background-color: #0095F6;
     color: #fff;
     border-radius: 8px;
+    margin-top: 20px;
 }
 
 .modal-inner-text p{
@@ -70,32 +68,108 @@
 .modal-picture {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 40px 0;
+    width: 100%;
+}
+
+.modal-picture img {
+    width: 30%;
 }
 
 .modal-inner-picture .fieldset label:hover {
     cursor: pointer; 
 }
 
-.modal-inner.hiddden {
-    display: none; 
-  }
-  
-  .selected-image {
-    width: 50%; 
+.selected-image {
+    width: 60%;
+    max-height: auto;
 }
 
-  .image-container {
+.image-container {
     max-width: 100%; 
-  }
-  
-  .selected-image {
-    max-width: 100%; 
-    height: auto;
-  }
+}
 
-  
-  
-  
-  
-  
+.modal-return {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 0 10px;
+}
+
+.modal-return img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.modal-return a {
+    color: #0095F6;
+    cursor: pointer;
+}
+
+.return-add-comment {
+    display: flex;
+}
+
+.return-add-comment .return-profile {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.return-add-comment p {
+    margin-top: 20px;
+    color: #000;
+    font-weight: 600;
+}
+
+.return-img-name {
+    display: flex;
+}
+
+.return-content input {
+    border: none;
+    outline: none;
+    height: 100px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+
+.modal-posts-show {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    overflow: hidden;
+}
+
+.modal-posts-show img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.select-posts-comments {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select-posts-comments img {
+    width: 40px;
+    height: 40px;
+}
+
+.share-stories {
+    margin: 30px 0;
+}
+
+.share-stories button {
+    padding: 10px 25px;
+    color: #fff;
+    background-color: #0095F6;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 16px;
+}

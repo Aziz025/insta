@@ -1,7 +1,9 @@
-export default function Post ({item}) {
-    return (
-            <div className="posts-images">
-                <img src={item.photo}/>
-            </div>
-    )
+import React from 'react';
+
+export default function Post({ item, onClick }) {
+  return (
+    <div className="posts-images" onClick={onClick}>
+      <img src={item.photo} />
+    </div>
+  );
 }

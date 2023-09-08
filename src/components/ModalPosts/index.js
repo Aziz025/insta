@@ -12,6 +12,10 @@ export default function ModalPosts({ close }) {
     }
   };
 
+  const returnToFirstModal = () => {
+    setContentVisible(true);
+  };
+
   return (
     <div className="modal">
       <div className="modal-backdrop" onClick={close}>
@@ -36,7 +40,21 @@ export default function ModalPosts({ close }) {
           </>
         ) : (
           <div className="image-container">
-            <img src={selectedImage} className="selected-image" />
+            <div className="modal-return">
+              <img src="/images/left-arrow.jpg" onClick={returnToFirstModal} />
+              <p>Create new post</p>
+              <a>Share</a>
+            </div>
+            <div className='return-add-comment'>
+              <img src={selectedImage} className="selected-image" />
+              <div className='return-content'>
+                <div className='return-img-name'>
+                  <img src="/images/profile.jpg" className='return-profile'/>
+                  <p>terrylucas</p>
+                </div>
+                <input placeholder='write'/>
+              </div>
+            </div>
           </div>
         )}
       </div>

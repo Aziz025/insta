@@ -1,5 +1,8 @@
+'use client'
+import React, { useState } from 'react';
 import Header from "@/components/header"
 import Posts from "@/components/posts"
+import ModalAddStories from "@/components/ModalAddStories";
 export default function Profile() {
     const posts = [{
 
@@ -21,11 +24,22 @@ export default function Profile() {
         photo: "/images/main6.jpg"
     }]
     
+    const [modalPostIsOpen, setModalPostIsOpen] = useState(false);
+
+    const openModalPost = () => {
+      setModalPostIsOpen(true);
+    };
+  
+    const closeModalPost = () => {
+      setModalPostIsOpen(false);
+    };
+
+
   return (
     <main>
     <Header />
         <div className="profile container profile-container">
-            <div className="profile-left">
+            <div className="profile-left" onClick={openModalPost}>
                 <img src="/images/profile.jpg"/>
             </div>
             <div className="profile-right">
@@ -44,7 +58,8 @@ export default function Profile() {
                 </div>
             </div>
         </div>
-        <Posts posts={posts} />
+        <Posts posts={posts}  />
+        {modalPostIsOpen && <ModalAddStories close={closeModalPost} />}
     </main>
   )
 }
