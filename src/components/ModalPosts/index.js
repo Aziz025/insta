@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 
 export default function ModalPosts({ close }) {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [contentVisible, setContentVisible] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [contentVisible, setContentVisible] = useState(true)
+  const [caption, setCaption] = useState('')
+  const [charCount, setCharCount] = useState(0)
 
-  const handleFileSelect = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setSelectedImage(URL.createObjectURL(file));
-      setContentVisible(false);
-    }
-  };
+const handleFileSelect = (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    setSelectedImage(URL.createObjectURL(file));
+    setContentVisible(false);
+  }
+};
 
-  const returnToFirstModal = () => {
-    setContentVisible(true);
-  };
+const returnToFirstModal = () => {
+  setContentVisible(true);
+};
+
+const сaptionChange = (e) => {
+  const text = e.target.value;
+  setCaption(text);
+  setCharCount(text.length);
+}
 
   return (
     <div className="modal">
@@ -52,7 +60,12 @@ export default function ModalPosts({ close }) {
                   <img src="/images/profile.jpg" className='return-profile'/>
                   <p>terrylucas</p>
                 </div>
-                <input placeholder='write'/>
+                <div className="char-count">
+                  <div className="textarea-container">
+                    <textarea placeholder='Write a caption...' value={caption} onChange={сaptionChange}/>
+                    <span>{charCount}/2,200</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

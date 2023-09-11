@@ -58,6 +58,7 @@
     color: #fff;
     border-radius: 8px;
     margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .modal-inner-text p{
@@ -128,6 +129,10 @@
     display: flex;
 }
 
+.return-content {
+    width: 50%;
+}
+
 .return-content input {
     border: none;
     outline: none;
@@ -136,15 +141,21 @@
     width: 100%;
 }
 
+.modal-inner-posts {
+    height: 70%;
+    width: 100%;
+    max-width: 800px;
+}
+
 .modal-posts-show {
     width: 100%;
-    height: 350px;
+    height: 100%;
     display: flex;
     overflow: hidden;
 }
 
 .modal-posts-show img {
-    width: 50%;
+    width: 55%;
     height: 100%;
     object-fit: cover;
 }
@@ -153,11 +164,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 2px solid #ddd;
 }
 
 .select-posts-comments img {
     width: 40px;
     height: 40px;
+}
+
+.select-posts-comments img:first-child {
+    margin-left: 5px;
 }
 
 .share-stories {
@@ -173,3 +189,133 @@
     border-radius: 4px;
     font-size: 16px;
 }
+
+.select-posts-content {
+    width: 45%;
+}
+
+.char-count {
+    width: 100%;
+    display: flex;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.textarea-container textarea{
+    border: none;
+    outline: none;
+    width: 75%;
+    height: 100px;
+    resize: none;
+}
+
+.check-posts-comment {
+    display: flex;
+    align-items: center;
+}
+
+.check-posts-comment img {
+    width: 30px;
+    height: 30px;
+}
+
+.add-comment-icons {
+    display: flex;
+} 
+
+.add-comment-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+.add-comment-icons img:nth-child(n + 3) {
+    margin-left: auto;
+}
+
+.check-posts-comment h4{
+    border: none;
+}
+
+.posts-liked {
+    display: flex;
+    align-items: center;
+}
+
+.posts-liked img {
+    width: 20px;
+    height: 20px;
+}
+
+.add-a-comment {
+    display: flex;
+}
+
+.add-a-comment img {
+    width: 30px;
+    height: 30px;
+}
+
+.add-a-comment textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    resize: none;
+    margin-top: 5px;
+}
+
+.add-a-comment a {
+    color: #0095F6;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.followers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.followers h3 {
+    text-align: center;
+}
+
+.follow-persons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.follow-persons-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.follow-persons-left a {
+    color: #0095F6;
+    cursor: pointer;
+}
+
+.follow-persons img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.follow-persons-right button {
+    border: none;
+    outline: none;
+    background-color: #ddd;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
