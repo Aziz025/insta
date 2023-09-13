@@ -4,6 +4,7 @@ import Header from "@/components/header"
 import Posts from "@/components/posts"
 import ModalAddStories from "@/components/ModalAddStories";
 import ModalCheckFollowers from '@/components/ModalCheckFollowers';
+import ModalCheckFollowing from '@/components/ModalCheckFollowing';
 
 export default function Profile() {
   const posts = [{
@@ -25,24 +26,33 @@ export default function Profile() {
     photo: "/images/main6.jpg"
   }]
 
-  const [modalPostIsOpen, setModalPostIsOpen] = useState(false);
-  const [modalFollowersIsOpen, setModalFollowersIsOpen] = useState(false);
+const [modalPostIsOpen, setModalPostIsOpen] = useState(false);
+const [modalFollowersIsOpen, setModalFollowersIsOpen] = useState(false);
+const [modalFollowingIsOpen, setModalFollowingIsOpen] = useState(false);
 
-  const openModalPost = () => {
-    setModalPostIsOpen(true);
-  };
+const openModalPost = () => {
+  setModalPostIsOpen(true);
+};
 
-  const closeModalPost = () => {
-    setModalPostIsOpen(false);
-  };
+const closeModalPost = () => {
+  setModalPostIsOpen(false);
+};
 
-  const openModalFollowers = () => {
-    setModalFollowersIsOpen(true);
-  };
+const openModalFollowers = () => {
+  setModalFollowersIsOpen(true);
+};
 
-  const closeModalFollowers = () => {
-    setModalFollowersIsOpen(false);
-  };
+const closeModalFollowers = () => {
+  setModalFollowersIsOpen(false);
+};
+
+const openModalFollowing = () => {
+  setModalFollowingIsOpen(true);
+};
+
+const closeModalFollowing = () => {
+  setModalFollowingIsOpen(false);
+};
 
   return (
     <main>
@@ -60,7 +70,7 @@ export default function Profile() {
           <div className="profile-stats">
             <p>1.258 posts</p>
             <button onClick={openModalFollowers}>4M followers</button>
-            <p>1.250 following</p>
+            <button onClick={openModalFollowing}>1.250 following</button>
           </div>
           <div className="profile-info">
             <p>Terry Lucas</p>
@@ -70,6 +80,7 @@ export default function Profile() {
       <Posts posts={posts} />
       {modalPostIsOpen && <ModalAddStories close={closeModalPost} />}
       {modalFollowersIsOpen && <ModalCheckFollowers close={closeModalFollowers} />}
+      {modalFollowingIsOpen && <ModalCheckFollowing close={closeModalFollowing} />}
     </main>
   )
 }

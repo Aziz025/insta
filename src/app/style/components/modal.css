@@ -192,6 +192,8 @@
 
 .select-posts-content {
     width: 45%;
+    display: flex;
+    flex-direction: column;
 }
 
 .char-count {
@@ -209,6 +211,11 @@
     resize: none;
 }
 
+.modal-all-comments {
+    display: flex;
+    align-items: center;
+}
+
 .check-posts-comment {
     display: flex;
     align-items: center;
@@ -217,6 +224,12 @@
 .check-posts-comment img {
     width: 30px;
     height: 30px;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+.check-posts-comment p {
+    margin-left: 10px;
 }
 
 .add-comment-icons {
@@ -263,10 +276,14 @@
     margin-top: 5px;
 }
 
-.add-a-comment a {
+.add-a-comment button {
     color: #0095F6;
     margin-right: 5px;
     cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    margin-bottom: 10px;
 }
 
 .followers {
@@ -274,6 +291,11 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+.followers-content {
+    height: 400px;
+    width: 25%;
 }
 
 .followers h3 {
@@ -318,4 +340,8 @@
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-  }
+}
+
+.add-comment-on-post {
+    margin-top: auto;
+}

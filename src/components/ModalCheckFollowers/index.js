@@ -3,7 +3,7 @@ export default function ModalCheckFollowers({ close}) {
   return (
     <div className="modal">
       <div className="modal-backdrop" onClick={close}></div>
-      <div className="modal-inner">
+      <div className="modal-inner followers-content">
         <div className="followers">
           <h3>Followers</h3>
         </div>
