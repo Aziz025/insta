@@ -25,14 +25,14 @@ export default function HomePage() {
           <div>
             <div className="check-story">
               <img src="/images/stories1.jpg" onClick={() => openModal('/images/main1.jpg')} />
-              <img src="/images/stories2.jpg" onClick={() => openModal('/images/main2.jpg')} />
+              <img src="/images/stories2.svg" onClick={() => openModal('/images/main2.jpg')} />
               <img src="/images/stories3.jpg" onClick={() => openModal('/images/main3.jpg')} />
               <img src="/images/stories4.jpg" onClick={() => openModal('/images/main4.jpg')} />
               <img src="/images/stories5.jpg" onClick={() => openModal('/images/main5.jpg')} />
               <img src="/images/stories6.jpg" onClick={() => openModal('/images/main6.jpg')} />
             </div>
             <div className="home-info">
-              <img src="/images/stories2.jpg" />
+              <img src="/images/stories2.svg" />
               <p>terrylucas</p>
               <img src="/images/dots.jpg" />
             </div>
@@ -47,7 +47,7 @@ export default function HomePage() {
             </div>
             <div className="follow-content">
               <div className="follow-content-info">
-                <img src="/images/stories2.jpg" />
+                <img src="/images/stories2.svg" />
                 <div className="follow-name">
                   <h4>terylucas</h4>
                   <p>Followed by terylucas + 2 more</p>

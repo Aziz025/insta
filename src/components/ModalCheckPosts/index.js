@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 export default function ModalCheckPosts({ close, selectedImage }) {
 const [caption, setCaption] = useState('')
 const [comments, setComments] = useState([]);
-const [newComment, setNewComment] = useState('');
 
 const сaptionChange = (e) => {
   const text = e.target.value;
@@ -10,15 +9,21 @@ const сaptionChange = (e) => {
 }
 
 const addComment = () => {
-  if (newComment !== '') {
+  if (caption !== '') {
     const commentData = {
       username: 'senalov_025',
       profileImage: '/images/profile.jpg',
-      text: newComment,
+      text: caption,
     };
     setComments([...comments, commentData]);
-    setNewComment('');
+    setCaption('');
   }
+}
+
+const deleteComment = (index) => {
+  const newComments = [...comments];
+  newComments.splice(index, 1);
+  setComments(newComments);
 }
 
   return (
@@ -39,6 +44,7 @@ const addComment = () => {
                   <img src={comment.profileImage}/>
                   <h4>{comment.username}</h4>
                   <p>{comment.text}</p>
+                  <button onClick={() => deleteComment(index)}>Удалить</button>
                 </div>
               ))}
             </div>
@@ -50,7 +56,7 @@ const addComment = () => {
               </div>
               <div className="posts-liked">
                 <img src="/images/stories1.jpg"/>
-                <img src="/images/stories2.jpg"/>
+                <img src="/images/stories2.svg"/>
                 <p>Liked by senalov070 and 61 others</p>
               </div>
               <div className="add-a-comment">
