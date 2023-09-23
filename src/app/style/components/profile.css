@@ -57,6 +57,22 @@
     font-size: 16px;
 }
 
+.profile-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-info button {
+    background-color: red;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
 .posts-container {
     width: 60%;
 }

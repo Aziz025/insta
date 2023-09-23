@@ -5,8 +5,11 @@ import Posts from "@/components/posts"
 import ModalAddStories from "@/components/ModalAddStories";
 import ModalCheckFollowers from '@/components/ModalCheckFollowers';
 import ModalCheckFollowing from '@/components/ModalCheckFollowing';
+import { useDispatch } from 'react-redux';
+import { logOut } from '@/app/store/slices/authSlice';
 
 export default function Profile() {
+  const dispatch = useDispatch()
   const posts = [{
     photo: "/images/main1.jpg" 
   }, 
@@ -74,6 +77,7 @@ const closeModalFollowing = () => {
           </div>
           <div className="profile-info">
             <p>Terry Lucas</p>
+            <button onClick={() => dispatch(logOut())}>Logout</button>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function Header() {
     <header className="header">
       <div className="container">
         <div className="header-logo">
-          <Link href="/">
+          <Link href="/home-page">
             <img src="/images/logo.jpg" />
           </Link>
         </div>

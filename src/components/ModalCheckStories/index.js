@@ -1,26 +1,5 @@
 import React, { useState, useEffect } from 'react';
 export default function ModalCheckStories({ close, selectedImage }) {
-
-  const [timeLeft, setTimeLeft] = useState(10);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prevTime) => prevTime - 1);
-  }, 1000);
-
-  const closeModalTime = () => {
-    setTimeout(() => {
-      close();
-    }, 5000);
-  };
-
-  closeModalTime();
-
-  return () => {
-      clearInterval(timer);
-    };
-  }, [close]);
-
   return (
     <div className="modal">
       <div className="modal-backdrop modal-backdrop-story" onClick={close}></div>
