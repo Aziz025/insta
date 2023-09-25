@@ -1,13 +1,19 @@
 'use client'
 import Link from "next/link"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
-import { authorize } from "@/app/store/slices/authSlice"
+import { signIn } from "@/app/store/slices/authSlice";
 import { useRouter } from "next/navigation"
 export default function UserLogin (){
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const dispatch = useDispatch()
     const isAuth = useSelector((state) => state.auth.isAuth)
     const router = useRouter()
+
+    const handleLogin = () => {
+        dispatch(signIn(email, password))
+    }
 
     useEffect(() => {
         if(isAuth) router.push("/profile")
@@ -21,9 +27,9 @@ export default function UserLogin (){
                 <div className="card">
                     <img src="/images/logo.jpg" className="logo-img"/>
                     <form>
-                        <input className="input"  placeholder="Email"/>
-                        <input className="input"  placeholder="Password"/>
-                        <button type="button" className="button link-button" onClick={() => dispatch(authorize())}>Log in</button>
+                        <input className="input"  placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email}/>
+                        <input className="input"  placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+                        <button type="button" className="button link-button" onClick={handleLogin}>Log in</button>
                     </form>
                 </div>
                 <div className="card">

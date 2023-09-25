@@ -1,6 +1,28 @@
 'use client'
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useSelector, useDispatch } from "react-redux"
+import { signUp } from "@/app/store/slices/authSlice"
+import { useEffect, useState } from "react"
+
 export default function UserRegister () {
+
+    const [email, setEmail] = useState("")
+    const [full_name, setFullName] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const router = useRouter()
+    const isAuth = useSelector((state) => state.auth.isAuth)
+    const dispatch = useDispatch()
+
+    const handleSignup = () => {
+        dispatch(signUp(email, full_name, username, password, router))
+    }
+
+    useEffect(() => {
+        if(isAuth)router.push("/login")
+        if(!isAuth)router.push("/register")
+    }, [isAuth])
 
     return (
         <section className="login-page">
@@ -12,11 +34,11 @@ export default function UserRegister () {
                 </h2>
                 <p className="p-border">OR</p>
                 <form>
-                    <input className="input"  placeholder="Email"/>
-                    <input className="input"  placeholder="Full Name"/>
-                    <input className="input"  placeholder="Username"/>
-                    <input className="input"  placeholder="Password"/>
-                    <Link href="/login" className="button">Sign up</Link>
+                    <input className="input"  placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email}/>
+                    <input className="input"  placeholder="Full Name" onChange={(e) => setFullName(e.target.value)} value={full_name}/>
+                    <input className="input"  placeholder="Username" onChange={(e) => setUsername(e.target.value)} value={username}/>
+                    <input className="input"  placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+                    <button type="button" className="button" onClick={handleSignup}>Sign up</button>
                 </form>
             </div>
             <div className="card">
