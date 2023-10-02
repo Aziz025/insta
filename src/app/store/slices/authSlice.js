@@ -3,16 +3,41 @@ import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { END_POINT } from '@/config/end-point'
 
+const token = localStorage.getItem("token")
+const decodedToken = jwt_decode(token)
+let initialState = {
+  isAuth: false,
+  currentUser: null,
+  tokenExt: 0
+}
+
+if(token) {
+  const decodedToken = jwt_decode(token)
+  if(decodedToken.exp * 1000 > Date.now()) {
+    initialState = {
+      isAuth: true,
+      currentUser: {
+        id: decodedToken.id,
+        email: decodedToken.email,
+        full_name: decodedToken.full_name,
+        username: decodedToken.username
+      },
+      tokenExt: decodedToken.exp
+    }
+
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+  }else {
+    localStorage.removeItem("token")
+  }
+}
 
 export const authSlice = createSlice({
   name: 'auth',
-  initialState: {
-    isAuth: false,
-    currentUser: null,
-    tokenExt: 0
-  },
+  initialState,
   reducers: {
     authorize: (state, action) => {
+      localStorage.setItem("token", action.payload.token)
+      axios.defaults.headers.common['Authorization'] = `Bearer ${action.payload.token}`
       const decoded = jwt_decode(action.payload.token)
         state.currentUser = {
           id: decoded.id,
@@ -27,6 +52,9 @@ export const authSlice = createSlice({
     },
     logOut: (state) => {
       state.isAuth = false
+      state.currentUser = null
+      state.exp = 0
+      localStorage.removeItem("token")
     },
   },
 })
