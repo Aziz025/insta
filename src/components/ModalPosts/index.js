@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { createPost, uppendPost } from '@/app/store/slices/postSlices';
 
 export default function ModalPosts({ close }) {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [image, setImage] = useState('')
   const [contentVisible, setContentVisible] = useState(true);
   const [description, setDescription] = useState('');
   const [charCount, setCharCount] = useState(0);
@@ -13,6 +13,7 @@ export default function ModalPosts({ close }) {
   const handleFileSelect = (e) => {
     const file = e.target.files[0];
     if (file) {
+      setImage(e.target.files[0])
       setSelectedImage(URL.createObjectURL(file));
       setContentVisible(false);
     }
@@ -29,25 +30,9 @@ export default function ModalPosts({ close }) {
     setCharCount(text.length);
   };
 
-  const uploadPost = async () => {
-    try {
-      const formData = new FormData();
-      formData.append('image', selectedImage);
-      formData.append('description', description);
-
-      const response = await axios.post('/api/post/newPost', formData);
-      dispatch(uppendPost({ newPost: response.data }));
-      
-      setSelectedImage(null);
-      close();
-    } catch (error) {
-      console.error('Ошибка при загрузке поста:', error);
-    }
-  };
-
   const handleSave = () => {
     const formData = new FormData();
-    formData.append('image', selectedImage);
+    formData.append('image', image);
     formData.append('description', description);
     dispatch(createPost(formData))
     close()
@@ -76,7 +61,7 @@ export default function ModalPosts({ close }) {
             </div>
           </>
         ) : (
-          
+
           <div className="image-container">
             <div className="modal-return">
               <img src="/images/left-arrow.jpg" onClick={returnToFirstModal} />
