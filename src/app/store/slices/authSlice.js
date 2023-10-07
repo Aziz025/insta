@@ -4,7 +4,6 @@ import jwt_decode from 'jwt-decode'
 import { END_POINT } from '@/config/end-point'
 
 const token = localStorage.getItem("token")
-const decodedToken = jwt_decode(token)
 let initialState = {
   isAuth: false,
   currentUser: null,

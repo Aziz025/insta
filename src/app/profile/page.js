@@ -1,37 +1,38 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from "@/components/header"
 import Posts from "@/components/posts"
 import ModalAddStories from "@/components/ModalAddStories";
 import ModalCheckFollowers from '@/components/ModalCheckFollowers';
 import ModalCheckFollowing from '@/components/ModalCheckFollowing';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '@/app/store/slices/authSlice';
+import { useRouter } from 'next/navigation';
+import { getMyPosts } from '../store/slices/postSlices';
 
 export default function Profile() {
   const dispatch = useDispatch()
-  const posts = [{
-    photo: "/images/main1.jpg" 
-  }, 
-  {
-    photo: "/images/main2.jpg" 
-  },
-  {
-    photo: "/images/main3.jpg" 
-  },
-  {
-    photo: "/images/main4.jpg" 
-  },
-  {
-    photo: "/images/main5.jpg"        
-  },
-  {
-    photo: "/images/main6.jpg"
-  }]
+  const router = useRouter();
+
+  const isAuth = useSelector((state) => state.auth.isAuth)
+  const posts = useSelector((state) => state.post.posts)
+
+  const didMount = () => {
+    dispatch(getMyPosts())
+  }
+
+  useEffect(didMount, [
+
+  ])
 
 const [modalPostIsOpen, setModalPostIsOpen] = useState(false);
 const [modalFollowersIsOpen, setModalFollowersIsOpen] = useState(false);
 const [modalFollowingIsOpen, setModalFollowingIsOpen] = useState(false);
+
+const handleLogout = () => {
+  dispatch(logOut());
+  router.push("/login");
+};
 
 const openModalPost = () => {
   setModalPostIsOpen(true);
@@ -77,7 +78,7 @@ const closeModalFollowing = () => {
           </div>
           <div className="profile-info">
             <p>Terry Lucas</p>
-            <button onClick={() => dispatch(logOut())}>Logout</button>
+            <button onClick={handleLogout}>Logout</button>
           </div>
         </div>
       </div>
