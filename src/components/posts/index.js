@@ -6,7 +6,7 @@ export default function Posts({ posts }) {
   const [selectedPost, setSelectedPost] = useState(null);
 
   const showPosts = posts.map((item, index) => (
-    <Post item={item} key={index} onClick={() => setSelectedPost(item.photo)} />
+    <Post item={item} key={index} onClick={() => setSelectedPost(item.image)} />
   ));
 
   return (
@@ -17,7 +17,7 @@ export default function Posts({ posts }) {
       </div>
       <div className="posts-images-grid">{showPosts}</div>
       {selectedPost && (
-        <ModalCheckPosts selectedImage={selectedPost} close={() => setSelectedPost(null)}/>
+        <ModalCheckPosts selectedImage={selectedPost} close={() => setSelectedPost(null)} />
       )}
     </div>
   );

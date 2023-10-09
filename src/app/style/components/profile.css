@@ -5,7 +5,6 @@
 .profile {
     display: flex;
     justify-content: space-between;
-
 }
 
 .profile-left {
@@ -90,6 +89,7 @@
 
 .posts-images {
     display: flex;
+    margin-bottom: 100px;
 }
 
 .posts-images-grid {

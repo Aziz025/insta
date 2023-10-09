@@ -21,9 +21,7 @@ export default function Profile() {
     dispatch(getMyPosts())
   }
 
-  useEffect(didMount, [
-
-  ])
+  useEffect(didMount, [])
 
 const [modalPostIsOpen, setModalPostIsOpen] = useState(false);
 const [modalFollowersIsOpen, setModalFollowersIsOpen] = useState(false);
