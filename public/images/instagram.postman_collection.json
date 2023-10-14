@@ -1,0 +1,1098 @@
+{
+	"info": {
+		"_postman_id": "6de1cd34-38dc-410a-b54a-bcbeab27b442",
+		"name": "instagram",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26339620"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "full_name",
+									"value": "asd",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "asd",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "asd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/auth/signup",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "tamik@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "asd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/auth/signin",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ostintimberlake@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "full_name",
+									"value": "asd edited",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "asd edited",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+77711111111",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/auth/editUser",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"editUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userDetailInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/userDetailInfo/asd",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"userDetailInfo",
+								"asd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserInfoById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/getUserInfoById/1",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"getUserInfoById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "new post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/tamerlan/Downloads/1.webp"
+								},
+								{
+									"key": "description",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/post/newPost",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"newPost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/tamerlan/Downloads/8.webp"
+								},
+								{
+									"key": "description",
+									"value": "edited",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/post/editPost",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"editPost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUserPosts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/post/getAllUserPosts",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"getAllUserPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPostById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/post/getPostByID/1",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"getPostByID",
+								"1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePostById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/post/deletePostByID/6",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"deletePostByID",
+								"6"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUsersPosts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/post/getAllUsersPosts",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"getAllUsersPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPostsByUsername",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/post/byUsername/Asd",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"byUsername",
+								"Asd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPostsByUserID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/post/getPostsByUserID/1",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"getPostsByUserID",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "story",
+			"item": [
+				{
+					"name": "createStory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video",
+									"type": "file",
+									"src": "/Users/tamerlan/Downloads/IMG_7340.MOV"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/post/newStory",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"newStory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteStory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/post/deleteStory/1",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"deleteStory",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userStoriesById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/post/userStoriesById",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"userStoriesById"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "newComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "postId",
+									"value": "11",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/newComment",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"newComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/deleteComment/1",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"deleteComment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCommentsByPostId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "postId",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{END_POINT}}/api/getComments",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"getComments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscription",
+			"item": [
+				{
+					"name": "follow",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/12/follow",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"12",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unFollow",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/12/unfollow",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"12",
+								"unfollow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFollowersByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/subscription/2/followers",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								"2",
+								"followers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFollowingsByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/subscription/1/following",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								"1",
+								"following"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "likes",
+			"item": [
+				{
+					"name": "newLikePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/like/add-like-to-post/7",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"like",
+								"add-like-to-post",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newLikeComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/like/add-like-to-comment/18",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"like",
+								"add-like-to-comment",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newLikeStory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/like/add-like-to-story/8",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"like",
+								"add-like-to-story",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeLike",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/like/remove-like/1",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"like",
+								"remove-like",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLikesByPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/like/get-likes-by-post/7",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"like",
+								"get-likes-by-post",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLikesByComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/like/get-likes-by-comment/18",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"like",
+								"get-likes-by-comment",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLikesByStory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{END_POINT}}/api/like/get-likes-by-story/8",
+							"host": [
+								"{{END_POINT}}"
+							],
+							"path": [
+								"api",
+								"like",
+								"get-likes-by-story",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "END_POINT",
+			"value": "http://157.245.156.41:3001",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0YW1pa0BnbWFpbC5jb20iLCJmdWxsX25hbWUiOiJhc2QiLCJ1c2VybmFtZSI6ImFzZCIsInBob25lIjpudWxsLCJpYXQiOjE2OTY1MTI4MTcsImV4cCI6MTY5NjU5OTIxN30.wSU30fsBJe4ScxL9n88wSByKWJcJpjOoWvW1lLlJNaA",
+			"type": "string"
+		},
+		{
+			"value": "http://157.245.156.41:3001",
+			"type": "string"
+		}
+	]
+}

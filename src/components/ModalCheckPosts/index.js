@@ -1,9 +1,17 @@
+'use client'
+import { END_POINT } from '@/config/end-point';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deletePost } from '@/app/store/slices/postSlices';
+import ModalEditPost from '../ModalEditPost';
 
-export default function ModalCheckPosts({ close, selectedImage, image }) {
+export default function ModalCheckPosts({ close, selectedImage, description, item }) {
   const [caption, setCaption] = useState('');
   const [comments, setComments] = useState([]);
-  const [activeCommentIndex, setActiveCommentIndex] = useState(-1);
+  const [showEdit, setShowEdit] = useState(false)
+  const [editModalVisible, setEditModalVisible] = useState(false);
+
+  const dispatch = useDispatch()
 
   const сaptionChange = (e) => {
     const text = e.target.value;
@@ -14,7 +22,7 @@ export default function ModalCheckPosts({ close, selectedImage, image }) {
     if (caption !== '') {
       const commentData = {
         username: 'senalov_025',
-        profileImage: selectedImage,
+        profileImage: '/images/profile.jpg',
         text: caption,
       };
       setComments([...comments, commentData]);
@@ -22,10 +30,11 @@ export default function ModalCheckPosts({ close, selectedImage, image }) {
     }
   };
 
-  const handleEditComment = (index) => {
-  };
-
-  const handleDeleteComment = (index) => {
+  const handleDeletePost = () => {
+    if (item && item.id) {
+      dispatch(deletePost(item.id));
+    }
+    close();
   };
 
   return (
@@ -33,24 +42,23 @@ export default function ModalCheckPosts({ close, selectedImage, image }) {
       <div className="modal-backdrop" onClick={close}></div>
       <div className="modal-inner modal-inner-posts">
         <div className="modal-posts-show">
-          <img src={image} alt="Выбранная фотография" />
+          <img src={`${END_POINT}${selectedImage}`} alt="Выбранная фотография" />
           <div className="select-posts-content">
             <div className="select-posts-comments">
               <img src="/images/profile.jpg" alt="User profile" />
               <p>terrylucas</p>
-              {comments.map((comment, index) => (
-                <div key={index}>
-                  <img src="/images/dots.jpg" alt="Options" onClick={() => setActiveCommentIndex(index)}/>
-                  {activeCommentIndex === index && (
-                    <div className="comment-actions">
-                      <button onClick={() => handleEditComment(index)}>Редактировать</button>
-                      <button onClick={() => handleDeleteComment(index)}>Удалить</button>
-                    </div>
-                  )}
-                </div>
-              ))}
+              <img src="/images/dots.jpg" alt="Options" onClick={() => setShowEdit(!showEdit)}/>
+
+              {showEdit && 
+              <div className="comment-actions">
+                <button onClick={() => setEditModalVisible(true)}>Редактировать</button>
+                <button onClick={handleDeletePost}>Удалить</button>
+              </div>}
+                 
             </div>
             <div className="modal-all-comments">
+            <h4>{description}</h4>
+
             {comments.map((comment, index) => (
                 <div className="check-posts-comment" key={index}>
                   <img src={comment.profileImage}/>
@@ -79,6 +87,10 @@ export default function ModalCheckPosts({ close, selectedImage, image }) {
           </div>
         </div>
       </div>
+      {editModalVisible && (
+        <ModalEditPost
+          close={() => setEditModalVisible(false)} image={selectedImage} description={description}/>
+      )}
     </div>
   );
 }

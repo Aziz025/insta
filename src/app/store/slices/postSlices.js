@@ -14,12 +14,17 @@ export const postSlice = createSlice({
     },
     uppendPost: (state, actions) => {
       state.posts = [...state.posts, actions.payload.newPosts]
+    },
+    handleDeletePost: (state, action) => {
+      let posts = [...state.posts]
+      posts = posts.filter(currentPost => currentPost.id !== action.payload)
+      state.posts = posts
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const {setMyPosts, uppendPost } = postSlice.actions
+export const {setMyPosts, uppendPost, handleDeletePost } = postSlice.actions
 
 export const getMyPosts = () => async (dispatch) => {
     try{
@@ -35,6 +40,23 @@ export const createPost = (sendData) => async (dispatch) => {
       dispatch(uppendPost({newPosts: res.data}))
   }catch(e){
       alert("Что то пошло не так сооющите о ошибке Тех. специалистам")
+  }
+}
+
+export const editPost = (sendData, id) => async (dispatch) => {
+  try{
+      const res = await axios.put(`${END_POINT}/api/post/editPost`, sendData)
+  }catch(e){
+      alert("Что то прошло не так, сообщите о ошибке Тех. специалистам сайта!")
+  }
+}
+
+export const deletePost = (id) => async (dispatch) => {
+  try{
+      const res = await axios.delete(`${END_POINT}/api/post/deletePostByID/${id}`)
+      dispatch(handleDeletePost(id))
+  }catch(e){
+      alert("Что то прошло не так, сообщите о ошибке Тех. специалистам сайта!")
   }
 }
 

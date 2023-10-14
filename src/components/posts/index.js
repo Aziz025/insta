@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Post from "./post";
 import ModalCheckPosts from '../ModalCheckPosts';
 
 export default function Posts({ posts }) {
   const [selectedPost, setSelectedPost] = useState(null);
+  console.log(selectedPost)
 
   const showPosts = posts.map((item, index) => (
-    <Post item={item} key={index} onClick={() => setSelectedPost(item.image)} />
+    <Post item={item} key={index} setSelectedPost={setSelectedPost} />
   ));
 
   return (
@@ -17,7 +18,7 @@ export default function Posts({ posts }) {
       </div>
       <div className="posts-images-grid">{showPosts}</div>
       {selectedPost && (
-        <ModalCheckPosts selectedImage={selectedPost} close={() => setSelectedPost(null)} />
+        <ModalCheckPosts selectedImage={selectedPost} description={selectedPost.description} close={() => setSelectedPost(null)}/>
       )}
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPost, uppendPost } from '@/app/store/slices/postSlices';
-import ModalCheckPosts from '../ModalCheckPosts';
 
 export default function ModalPosts({ close }) {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -86,13 +85,6 @@ export default function ModalPosts({ close }) {
             </div>
           </div>
         )}
-              {modalPostIsOpen && (
-        <ModalCheckPosts
-          close={closeModalPost}
-          selectedImage={selectedImage}
-          image={image} // Передаем image как пропс
-        />
-      )}
       </div>
     </div>
   );

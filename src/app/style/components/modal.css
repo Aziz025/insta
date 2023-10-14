@@ -164,6 +164,7 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid #ddd;
+    position: relative;
 }
 
 .select-posts-comments img {
@@ -415,4 +416,21 @@
 
 .bottom-content input::placeholder {
     color: #fff;
+}
+
+.comment-actions {
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+}
+
+.comment-actions button {
+    display: block;
+    margin: 0px auto;
+    width: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
