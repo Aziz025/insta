@@ -434,3 +434,39 @@
     outline: none;
     cursor: pointer;
 }
+
+.delete-post {
+    color: red;
+    margin-top: 5px;
+}
+
+.edit-image {
+    width: 50%;
+    margin-right: 10px;
+    position: relative;
+}
+
+.edit-image>img {
+    width: 100%;
+}
+
+.fieldset-edit {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #fff;
+    background-color: blue;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-label {
+    cursor: pointer;
+}
+
+.modal-shear {
+    border: none;
+    background-color: transparent;
+    color: blue;
+    cursor: pointer;
+}

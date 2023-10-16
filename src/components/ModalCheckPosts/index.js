@@ -9,7 +9,7 @@ export default function ModalCheckPosts({ close, selectedImage, description, ite
   const [caption, setCaption] = useState('');
   const [comments, setComments] = useState([]);
   const [showEdit, setShowEdit] = useState(false)
-  const [editModalVisible, setEditModalVisible] = useState(false);
+  const [editModal, setEditModal] = useState(false);
 
   const dispatch = useDispatch()
 
@@ -51,8 +51,8 @@ export default function ModalCheckPosts({ close, selectedImage, description, ite
 
               {showEdit && 
               <div className="comment-actions">
-                <button onClick={() => setEditModalVisible(true)}>Редактировать</button>
-                <button onClick={handleDeletePost}>Удалить</button>
+                <button onClick={() => setEditModal(true)}>Редактировать</button>
+                <button className='delete-post' onClick={handleDeletePost}>Удалить</button>
               </div>}
                  
             </div>
@@ -87,9 +87,8 @@ export default function ModalCheckPosts({ close, selectedImage, description, ite
           </div>
         </div>
       </div>
-      {editModalVisible && (
-        <ModalEditPost
-          close={() => setEditModalVisible(false)} image={selectedImage} description={description}/>
+      {editModal && (
+        <ModalEditPost close={() => {setEditModal(false); close();}} item={item}/>
       )}
     </div>
   );

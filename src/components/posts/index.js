@@ -18,7 +18,7 @@ export default function Posts({ posts }) {
       </div>
       <div className="posts-images-grid">{showPosts}</div>
       {selectedPost && (
-        <ModalCheckPosts selectedImage={selectedPost} description={selectedPost.description} close={() => setSelectedPost(null)}/>
+        <ModalCheckPosts item={selectedPost} selectedImage={selectedPost.image} description={selectedPost.description} close={() => setSelectedPost(null)}/>
       )}
     </div>
   );

@@ -66,7 +66,7 @@ export default function ModalPosts({ close }) {
             <div className="modal-return">
               <img src="/images/left-arrow.jpg" onClick={returnToFirstModal} />
               <p>Create new post</p>
-              <button onClick={handleSave}>Share</button>
+              <button className="modal-shear" onClick={handleSave}>Share</button>
             </div>
             <div className='return-add-comment'>
               <img src={selectedImage} className="selected-image" alt="selected" />
